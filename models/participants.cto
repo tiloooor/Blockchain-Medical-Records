@@ -1,0 +1,25 @@
+/* 
+ * Model participants: patients, providers, payers. 
+ */
+
+ namespace org.acme.bmr.participants
+
+concept Name {
+  o String firstName 
+  o String lastName
+}
+
+ abstract participant Person identified by userID {
+  o String userID 
+  o Name fullName
+  o String title
+}
+
+participant Provider extends Person {
+  o String hospital
+}
+
+participant Patient extends Person{
+  // Potentially add more fields. 
+  // Patient is associated with a health record. 
+}

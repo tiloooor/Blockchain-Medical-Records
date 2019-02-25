@@ -1,0 +1,30 @@
+/* General Information */
+
+namespace org.acme.bmr.generaldata
+
+ enum Gender {
+  o MALE
+  o FEMALE
+  o OTHER
+}
+
+enum Race {
+  o ASIAN
+  o WHITE
+  o BLACK
+  o HISPANIC
+  o OTHER
+}
+
+concept Address {
+  o String city optional
+  o String country
+  o String street optional
+  o String zip optional
+}
+
+concept ContactInformation {
+  o String email optional
+  o String phone optional
+  o	Address address optional
+}

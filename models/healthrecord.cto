@@ -1,0 +1,37 @@
+/* 
+ * Model patient health data. 
+ */
+
+ namespace org.acme.bmr.healthrecord
+ import org.acme.bmr.participants.Patient
+ import org.acme.bmr.participants.Provider
+
+ import org.acme.bmr.generaldata.ContactInformation
+ import org.acme.bmr.generaldata.Gender
+ import org.acme.bmr.generaldata.Race
+
+/* Medical information */
+asset PatientInformation identified by patientId {
+  o String patientId
+  o ContactInformation contact optional
+  o Gender gender optional
+  o Race race optional
+  o Visits visitInformation 
+}
+
+/* Visits */
+concept Visits {
+  o DateTime visitDate
+  o VisitNotes visitNotes optional
+  o Provider provider optional 
+}
+
+concept VisitNotes {
+  o String description
+}
+
+transaction updateVisitLog {
+  o Visits newVisit
+  o PatientInformation patientInfo
+}
+
